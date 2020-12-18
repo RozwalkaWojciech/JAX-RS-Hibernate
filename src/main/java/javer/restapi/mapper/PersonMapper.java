@@ -3,9 +3,6 @@ package javer.restapi.mapper;
 import javer.restapi.dto.PersonDto;
 import javer.restapi.model.Person;
 
-import javax.ejb.Stateless;
-
-@Stateless
 public class PersonMapper {
 
     public static Person dtoToPerson(PersonDto personDto) {
