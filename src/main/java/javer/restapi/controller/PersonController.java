@@ -32,4 +32,10 @@ public class PersonController {
         return personService.update(id, personDto);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void delete(@PathParam("id") Integer id) {
+        personService.delete(id);
+    }
+
 }
