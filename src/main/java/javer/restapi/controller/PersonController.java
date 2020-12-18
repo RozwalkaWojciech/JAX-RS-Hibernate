@@ -17,6 +17,7 @@ public class PersonController {
     PersonService personService;
 
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     public PersonDto save(PersonDto personDto){
         return personService.save(personDto);
     }
