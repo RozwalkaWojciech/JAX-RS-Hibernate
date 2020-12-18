@@ -6,6 +6,7 @@ import javer.restapi.service.PersonService;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/person")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,6 +37,12 @@ public class PersonController {
     @Path("/{id}")
     public void delete(@PathParam("id") Integer id) {
         personService.delete(id);
+    }
+
+    @GET
+    @Path("/list")
+    public List<PersonDto> getAll() {
+        return personService.getAll();
     }
 
 }

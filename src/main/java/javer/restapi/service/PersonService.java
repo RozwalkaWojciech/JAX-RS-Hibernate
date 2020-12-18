@@ -8,6 +8,8 @@ import javer.restapi.model.Person;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestScoped
 @Transactional
@@ -30,5 +32,12 @@ public class PersonService {
 
     public void delete(Integer id) {
         personDao.delete(id);
+    }
+
+    public List<PersonDto> getAll() {
+        return personDao.getAll()
+                .stream()
+                .map(PersonMapper::personToDto)
+                .collect(Collectors.toList());
     }
 }
