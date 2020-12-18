@@ -20,4 +20,8 @@ public class PersonService {
         return PersonMapper.personToDto(personDao.save(PersonMapper.dtoToPerson(personDto)));
     }
 
+    public PersonDto get(Integer id) {
+        return PersonMapper.personToDto(personDao.get(id));
+    }
+
 }
