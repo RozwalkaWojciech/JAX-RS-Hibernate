@@ -26,4 +26,10 @@ public class PersonController {
         return personService.get(id);
     }
 
+    @PUT
+    @Path("/{id}")
+    public PersonDto update(@PathParam("id") Integer id, PersonDto personDto) {
+        return personService.update(id, personDto);
+    }
+
 }

@@ -24,4 +24,8 @@ public class PersonService {
         return PersonMapper.personToDto(personDao.get(id));
     }
 
+    public PersonDto update(Integer id, PersonDto personDto) {
+        return PersonMapper.personToDto(personDao.update(id, PersonMapper.dtoToPerson(personDto)));
+    }
+
 }
