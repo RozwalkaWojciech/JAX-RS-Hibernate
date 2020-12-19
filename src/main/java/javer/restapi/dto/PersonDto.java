@@ -13,5 +13,6 @@ public class PersonDto {
     private String name;
     private String lastName;
     private String pesel;
+    private AddressDto address;
 
 }
