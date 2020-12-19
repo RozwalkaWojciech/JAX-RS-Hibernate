@@ -32,4 +32,9 @@ public class AddressController {
         return addressService.update(id, addressDto);
     }
 
+    @DELETE
+    @Path("/{id}")
+    public void delete(@PathParam("id") Integer id) {
+        addressService.delete(id);
+    }
 }
