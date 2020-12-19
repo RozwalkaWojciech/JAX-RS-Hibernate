@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-public class AddressDao implements Dao<Address> {
+public class AddressDao implements Dao<Address>, AddressDaoInterface<Address> {
 
     @PersistenceContext
     EntityManager entityManager;
@@ -48,5 +48,25 @@ public class AddressDao implements Dao<Address> {
     @Override
     public List<Address> getAll() {
         return entityManager.createQuery("select a from Address a", Address.class).getResultList();
+    }
+
+    @Override
+    public List<Address> getByState() {
+        return entityManager.createQuery("select a from Address a where a.state=:state", Address.class).getResultList();
+    }
+
+    @Override
+    public List<Address> getByCity() {
+        return entityManager.createQuery("select a from Address a where a.city=:city", Address.class).getResultList();
+    }
+
+    @Override
+    public List<Address> getByZip() {
+        return entityManager.createQuery("select a from Address a where a.zip=:zip", Address.class).getResultList();
+    }
+
+    @Override
+    public List<Address> getByStreet() {
+        return entityManager.createQuery("select a from Address a where a.street=:street", Address.class).getResultList();
     }
 }
