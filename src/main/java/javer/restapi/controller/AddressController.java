@@ -44,4 +44,10 @@ public class AddressController {
     public List<AddressDto> getAll() {
         return addressService.getAll();
     }
+
+    @GET
+    @Path("/{state}")
+    public List<AddressDto> getByState(@PathParam("state") String state) {
+        return addressService.getByState(state);
+    }
 }

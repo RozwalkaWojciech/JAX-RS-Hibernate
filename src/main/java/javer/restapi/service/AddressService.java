@@ -41,9 +41,9 @@ public class AddressService {
                 .collect(Collectors.toList());
     }
 
-    public List<AddressDto> getByState() {
+    public List<AddressDto> getByState(String state) {
         return addressDaoInterface
-                .getByState()
+                .getByState(state)
                 .stream()
                 .map(AddressMapper::addressToDto)
                 .collect(Collectors.toList());

@@ -51,7 +51,7 @@ public class AddressDao implements Dao<Address>, AddressDaoInterface<Address> {
     }
 
     @Override
-    public List<Address> getByState() {
+    public List<Address> getByState(String state) {
         return entityManager.createQuery("select a from Address a where a.state=:state", Address.class).getResultList();
     }
 
