@@ -26,4 +26,10 @@ public class AddressController {
         return addressService.get(id);
     }
 
+    @PUT
+    @Path("/{id}")
+    public AddressDto update(@PathParam("id") Integer id, AddressDto addressDto) {
+        return addressService.update(id, addressDto);
+    }
+
 }
