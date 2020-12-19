@@ -4,10 +4,7 @@ import javer.restapi.dto.AddressDto;
 import javer.restapi.service.AddressService;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/address")
@@ -21,6 +18,12 @@ public class AddressController {
     @POST
     public AddressDto save(AddressDto addressDto) {
         return addressService.save(addressDto);
+    }
+
+    @GET
+    @Path("/{id}")
+    public AddressDto getAddress(@PathParam("id") Integer id) {
+        return addressService.get(id);
     }
 
 }
