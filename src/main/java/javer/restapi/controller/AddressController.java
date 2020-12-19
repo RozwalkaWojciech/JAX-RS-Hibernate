@@ -6,6 +6,7 @@ import javer.restapi.service.AddressService;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/address")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,5 +37,11 @@ public class AddressController {
     @Path("/{id}")
     public void delete(@PathParam("id") Integer id) {
         addressService.delete(id);
+    }
+
+    @GET
+    @Path("/list")
+    public List<AddressDto> getAll() {
+        return addressService.getAll();
     }
 }
