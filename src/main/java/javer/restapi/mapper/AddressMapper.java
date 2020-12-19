@@ -16,7 +16,7 @@ public class AddressMapper {
         return address;
     }
 
-    public static AddressDto AddressToDto(Address address) {
+    public static AddressDto addressToDto(Address address) {
         AddressDto addressDto = new AddressDto();
         addressDto.setId(address.getId());
         addressDto.setState(address.getState());
