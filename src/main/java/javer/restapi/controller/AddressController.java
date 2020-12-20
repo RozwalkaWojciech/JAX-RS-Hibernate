@@ -50,4 +50,11 @@ public class AddressController {
     public List<AddressDto> getByState(@PathParam("state") String state) {
         return addressService.getByState(state);
     }
+
+    @GET
+    @Path("/{city}")
+    public List<AddressDto> getByCity(@PathParam("city") String city) {
+        return addressService.getByCity(city);
+    }
+
 }
