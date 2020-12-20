@@ -6,10 +6,14 @@ import javer.restapi.dto.AddressDto;
 import javer.restapi.mapper.AddressMapper;
 import javer.restapi.model.Address;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequestScoped
+@Transactional
 public class AddressService {
 
     @Inject
@@ -49,25 +53,25 @@ public class AddressService {
                 .collect(Collectors.toList());
     }
 
-    public List<AddressDto> getByCity() {
+    public List<AddressDto> getByCity(String city) {
         return addressDaoInterface
-                .getByCity()
+                .getByCity(city)
                 .stream()
                 .map(AddressMapper::addressToDto)
                 .collect(Collectors.toList());
     }
 
-    public List<AddressDto> getByZip() {
+    public List<AddressDto> getByZip(String zip) {
         return addressDaoInterface
-                .getByZip()
+                .getByZip(zip)
                 .stream()
                 .map(AddressMapper::addressToDto)
                 .collect(Collectors.toList());
     }
 
-    public List<AddressDto> getByStreet() {
+    public List<AddressDto> getByStreet(String street) {
         return addressDaoInterface
-                .getByStreet()
+                .getByStreet(street)
                 .stream()
                 .map(AddressMapper::addressToDto)
                 .collect(Collectors.toList());

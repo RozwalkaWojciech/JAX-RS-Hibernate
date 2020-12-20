@@ -56,17 +56,17 @@ public class AddressDao implements Dao<Address>, AddressDaoInterface<Address> {
     }
 
     @Override
-    public List<Address> getByCity() {
+    public List<Address> getByCity(String city) {
         return entityManager.createQuery("select a from Address a where a.city=:city", Address.class).getResultList();
     }
 
     @Override
-    public List<Address> getByZip() {
+    public List<Address> getByZip(String zip) {
         return entityManager.createQuery("select a from Address a where a.zip=:zip", Address.class).getResultList();
     }
 
     @Override
-    public List<Address> getByStreet() {
+    public List<Address> getByStreet(String street) {
         return entityManager.createQuery("select a from Address a where a.street=:street", Address.class).getResultList();
     }
 }

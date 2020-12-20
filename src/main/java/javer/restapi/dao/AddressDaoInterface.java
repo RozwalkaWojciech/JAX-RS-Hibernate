@@ -6,10 +6,10 @@ public interface AddressDaoInterface<T> {
 
     List<T> getByState(String state);
 
-    List<T> getByCity();
+    List<T> getByCity(String city);
 
-    List<T> getByZip();
+    List<T> getByZip(String zip);
 
-    List<T> getByStreet();
+    List<T> getByStreet(String street);
 
 }
