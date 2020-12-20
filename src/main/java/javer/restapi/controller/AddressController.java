@@ -57,4 +57,10 @@ public class AddressController {
         return addressService.getByCity(city);
     }
 
+    @GET
+    @Path("/{zip}")
+    public List<AddressDto> getByZip(@PathParam("zip") String zip) {
+        return addressService.getByZip(zip);
+    }
+
 }
