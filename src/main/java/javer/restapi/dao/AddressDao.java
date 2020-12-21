@@ -2,10 +2,12 @@ package javer.restapi.dao;
 
 import javer.restapi.model.Address;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Stateless
 public class AddressDao implements Dao<Address>, AddressDaoInterface<Address> {
 
     @PersistenceContext

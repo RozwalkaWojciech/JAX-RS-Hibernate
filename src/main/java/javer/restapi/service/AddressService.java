@@ -1,10 +1,8 @@
 package javer.restapi.service;
 
-import javer.restapi.dao.AddressDaoInterface;
-import javer.restapi.dao.Dao;
+import javer.restapi.dao.AddressDao;
 import javer.restapi.dto.AddressDto;
 import javer.restapi.mapper.AddressMapper;
-import javer.restapi.model.Address;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -17,9 +15,7 @@ import java.util.stream.Collectors;
 public class AddressService {
 
     @Inject
-    Dao<Address> addressDao;
-    @Inject
-    AddressDaoInterface<Address> addressDaoInterface;
+    AddressDao addressDao;
 
     public AddressDto save(AddressDto addressDto) {
         return AddressMapper.addressToDto(addressDao.save(AddressMapper.dtoToAddress(addressDto)));
@@ -46,7 +42,7 @@ public class AddressService {
     }
 
     public List<AddressDto> getByState(String state) {
-        return addressDaoInterface
+        return addressDao
                 .getByState(state)
                 .stream()
                 .map(AddressMapper::addressToDto)
@@ -54,7 +50,7 @@ public class AddressService {
     }
 
     public List<AddressDto> getByCity(String city) {
-        return addressDaoInterface
+        return addressDao
                 .getByCity(city)
                 .stream()
                 .map(AddressMapper::addressToDto)
@@ -62,7 +58,7 @@ public class AddressService {
     }
 
     public List<AddressDto> getByZip(String zip) {
-        return addressDaoInterface
+        return addressDao
                 .getByZip(zip)
                 .stream()
                 .map(AddressMapper::addressToDto)
@@ -70,7 +66,7 @@ public class AddressService {
     }
 
     public List<AddressDto> getByStreet(String street) {
-        return addressDaoInterface
+        return addressDao
                 .getByStreet(street)
                 .stream()
                 .map(AddressMapper::addressToDto)
