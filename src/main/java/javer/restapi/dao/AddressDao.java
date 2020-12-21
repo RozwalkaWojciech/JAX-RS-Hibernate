@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Stateless
-public class AddressDao implements Dao<Address>, AddressDaoInterface<Address> {
+public class AddressDao implements AddressDaoInterface<Address> {
 
     @PersistenceContext
     EntityManager entityManager;

@@ -5,8 +5,8 @@ import javer.restapi.dto.PersonDto;
 import javer.restapi.mapper.PersonMapper;
 import javer.restapi.model.Person;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Transactional
 public class PersonService {
 
-    @Inject
+    @EJB
     Dao<Person> personDao;
 
     public PersonDto save(PersonDto personDto) {

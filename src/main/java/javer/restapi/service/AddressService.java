@@ -1,11 +1,12 @@
 package javer.restapi.service;
 
-import javer.restapi.dao.AddressDao;
+import javer.restapi.dao.AddressDaoInterface;
 import javer.restapi.dto.AddressDto;
 import javer.restapi.mapper.AddressMapper;
+import javer.restapi.model.Address;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,8 +15,8 @@ import java.util.stream.Collectors;
 @Transactional
 public class AddressService {
 
-    @Inject
-    AddressDao addressDao;
+    @EJB
+    AddressDaoInterface<Address> addressDao;
 
     public AddressDto save(AddressDto addressDto) {
         return AddressMapper.addressToDto(addressDao.save(AddressMapper.dtoToAddress(addressDto)));

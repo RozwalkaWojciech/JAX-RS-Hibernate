@@ -1,8 +1,10 @@
 package javer.restapi.dao;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
-public interface AddressDaoInterface<T> {
+@Stateless
+public interface AddressDaoInterface<T> extends Dao<T> {
 
     List<T> getByState(String state);
 
