@@ -5,6 +5,9 @@ import javer.restapi.model.Person;
 
 public class PersonMapper {
 
+    private PersonMapper() {
+    }
+
     public static Person dtoToPerson(PersonDto personDto) {
         Person person = new Person();
         person.setName(personDto.getName());

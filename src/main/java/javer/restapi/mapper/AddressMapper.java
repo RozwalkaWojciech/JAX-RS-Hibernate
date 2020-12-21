@@ -5,6 +5,9 @@ import javer.restapi.model.Address;
 
 public class AddressMapper {
 
+    private AddressMapper() {
+    }
+
     public static Address dtoToAddress(AddressDto addressDto) {
         Address address = new Address();
         address.setState(addressDto.getState());
