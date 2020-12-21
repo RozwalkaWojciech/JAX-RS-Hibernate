@@ -10,6 +10,7 @@ public class PersonMapper {
         person.setName(personDto.getName());
         person.setLastName(personDto.getLastName());
         person.setPesel(personDto.getPesel());
+        person.setAddress(AddressMapper.dtoToAddress(personDto.getAddress()));
         return person;
     }
 
@@ -19,6 +20,7 @@ public class PersonMapper {
         personDto.setName(person.getName());
         personDto.setLastName(person.getLastName());
         personDto.setPesel(person.getPesel());
+        personDto.setAddress(AddressMapper.addressToDto(person.getAddress()));
         return personDto;
     }
 
